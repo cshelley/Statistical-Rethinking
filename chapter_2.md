@@ -63,14 +63,14 @@ The `d` in `dbinom` stands for density. There is also `rbinom`
 **Bayes’ theorem.** For the joint probability of the data wins and
 losses (W and L) and any particular value of *p* is:
 
-*P*(*W*,*L*,*p*) = *P*(*W*,*L*\|*p*) *P*(*p*)
+*P*(*W*,*L*,*p*) = *P*(*W*,*L*\|*p*)*P*(*p*)
 
 This just says that the probability of *W*, *L*, and *p* is the product
 of *P(W, L\|p)* and the prior probability *P(p)*.
 
 But also,
 
-*P*(*W*,*L*,*p*) = *P*(*p*\|*W*,*L*) *P*(*W*,*L*)
+*P*(*W*,*L*,*p*) = *P*(*p*\|*W*,*L*)*P*(*W*,*L*)
 
 Since both right-hand sides are equal, they are also equal to each
 other:
@@ -79,18 +79,18 @@ other:
 
 and so, **Bayes’ Theorem**:
 
-$$P(p\|W,L) = \frac{P(W,L\|p)\\P(p)}{P(W,L)}$$
+$$P(p\|W,L) = \frac{P(W,L\|p) P(p)}{P(W,L)}$$
 
 In the above, *P*(*W*,*L*) is the *average probability of the data*.
 
 In words:
 
-$$Posterior = \frac{Probability\\of\\the\\data\\\times\\Prior}{Average\\probability\\of\\the\\data}$$
+$$\text{Posterior} = \frac{\text{Probability of the data} \times \text{Average probability of the data}}{\text{Average probability of the data}}$$
 The average probability of the data is also known as the *average
 likelihood* or *marginal likelihood*. It’s job is just to standardize
 the posterior:
 
-*P*(*W*,*L*) = *E*(*P*(*W*,*L*\|*p*)) = ∫*P*(*W*,*L*\|*p*) *P*(*p*) *d**p*
+*P*(*W*,*L*) = *E*(*P*(*W*,*L*\|*p*)) = ∫*P*(*W*,*L*\|*p*)*P*(*p*)*d**p*
 
 **Model estimation techniques.**
 
@@ -142,24 +142,7 @@ plot(p_grid2, posterior2, type = "b",
 mtext("5 points")
 
 plot(p_grid3, posterior3, type = "b", 
-     xliab = "probability of water", ylab = "posterior probability")
-```
-
-    ## Warning in plot.window(...): "xliab" is not a graphical parameter
-
-    ## Warning in plot.xy(xy, type, ...): "xliab" is not a graphical parameter
-
-    ## Warning in axis(side = side, at = at, labels = labels, ...): "xliab" is not a
-    ## graphical parameter
-
-    ## Warning in axis(side = side, at = at, labels = labels, ...): "xliab" is not a
-    ## graphical parameter
-
-    ## Warning in box(...): "xliab" is not a graphical parameter
-
-    ## Warning in title(...): "xliab" is not a graphical parameter
-
-``` r
+     xlab = "probability of water", ylab = "posterior probability")
 mtext("100 points")
 ```
 
